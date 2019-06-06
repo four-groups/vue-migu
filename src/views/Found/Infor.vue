@@ -28,13 +28,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
    
     .mainCon{
         background: #efefef;
         margin-bottom: 44px;
-/*         padding: 45px 0 10px 0;
- */        .module{
+     padding: 45px 0 10px 0;
+         .module{
             margin-bottom: 10px;
             background: #fff;
             border-top:1px solid #f1f1f1;
@@ -42,16 +42,17 @@ export default {
             position: relative;
             .module-con{
                 width:100%;
-                height: auto;
-                .loop-time{
-                    height: 35px;
-                    line-height: 35px;
-                    padding: 0 12px;
-                    background: #efefef;
-                }
-                
+                height: auto; 
             }
         }
     }
-                    
+    .newList{
+        .loop-time{
+        height: 35px;
+        line-height: 35px;
+        padding: 0 12px;
+        background: #efefef;
+    }
+    }
+        
 </style>

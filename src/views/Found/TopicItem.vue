@@ -1,15 +1,18 @@
 <template>
     <div class="topicItem">
-        <div class="module-con">
+        <div class="module-con" 
+            v-for="topic in topics"
+            :key="topic._id"
+        >
             <router-link to="/found">
                 <div class="find-Poster">
-                    <img src="@/assets/list.jpg" alt="" class="lazy">
+                    <img :src="topic.summaryImages" alt="" class="lazy">
                     <div class="mongoliaLayer"></div>
                     <div class="topic-con">
-                        <div class="topic-btn font-13 white">话题讨论</div>
-                        <h3 class="font-18 white">看《追龙II》之前，你得先知道这些</h3>
+                        <div class="topic-btn font-13 white">{{topic.topicSource}}</div>
+                        <h3 class="font-18 white">{{topic.summary}}</h3>
                         <p class="font-13 white">
-                            <span class="topicNum inline-block">已有0位小伙伴围观</span>
+                            <span class="topicNum inline-block">{{topic.topicTags}}</span>
                         </p>
                     </div>
                 </div>
@@ -18,7 +21,7 @@
                 <div class="pull-right">
                     <div class="inline-block">
                         <i class="fa fa-thumbs-o-up"></i>
-                        <span class="font-14 high-grey pull-right">0</span>
+                        <span class="font-14 high-grey pull-right">{{topic.__v}}</span>
                     </div>
                 </div>
             </div>
@@ -28,7 +31,19 @@
 
 <script>
 export default {
+    data(){
+        return {
+            topics:[]
+        }
+    },
+    created(){
+         this.$http.get("/api/migu/find/topic",{
 
+            }).then(res=>{
+                this.topics = res.data.data.object_list;
+            })
+    }
+    
 }
 </script>
 
@@ -37,7 +52,7 @@ export default {
             position: relative;
             font-size: 0;
             img{
-                height: 125px;
+                height: 175px;
                 width:100%;
             }
             .mongoliaLayer{
@@ -60,6 +75,7 @@ export default {
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
+                    margin-bottom: 10px;
                 }
                 .topic-btn{
                     width:70px;

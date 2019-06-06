@@ -47,7 +47,7 @@
         <div class="t"><img :src="'http://movie.miguvideo.com/'+movieCard.imgSrc" alt=""></div>
         <div class="b">
         <p>{{movieCard.name}}</p>
-        <span>￥{{movieCard.movie_price}}</span>
+        <span>￥{{movieCard.VALUE}}</span>
         </div>
         </router-link>
     </div>
