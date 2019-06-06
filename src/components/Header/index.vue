@@ -5,7 +5,7 @@
            <span>{{title}}</span>
        </div>
        <div class="right">
-           <img src="../../assets/search_grey.png" alt="">
+           <img src="@/assets/search_grey.png" alt="">
            <span>搜索</span>
        </div>
     </div>

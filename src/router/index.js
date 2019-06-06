@@ -12,6 +12,7 @@ export default new Router({
     {path:"/",redirect:"/home"},
     home,found,mine,ticket,
     {path:"/notfound",component:()=>import("@/views/Notfound")},
+    
     {path:"*",redirect:"/notfound"}
   ]
 })
